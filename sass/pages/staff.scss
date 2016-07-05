@@ -1,0 +1,63 @@
+.staff-header {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.staff-header > h1 {
+  border-bottom: 3px solid $umass-maroon;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  padding: 5px;
+}
+
+.staff-header > p {
+  padding: 10px;
+  background-color: lighten($umass-maroon, 50);
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+div.person-box {
+  background-color: #9fb3c6;
+  margin: 10px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+div.person-box > h3 {
+  color: white;
+  background-color: darken($umass-maroon, 10);
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+div.person-container {
+  display: flex;
+}
+
+div.left {
+  display: block;
+}
+
+div.right {
+  display: block;
+  margin-left: 10px;
+}
+
+div.right * {
+  margin-bottom: 10px;
+}
+
+div.person-box img {
+  margin: 0px;
+}
+
+img.human-picture {
+  height: 300px;
+  clip: rect(0px, 230px, 300px, 0px);
+}

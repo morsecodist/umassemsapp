@@ -1,0 +1,63 @@
+div.shift-box {
+  background-color: #9fb3c6;
+  border-radius: 2px;
+  margin: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  min-width: 1000px;
+  display: flex;
+  text-align: left;
+}
+
+div.shift-box > div {
+  margin: 5px;
+  font-size: 16pt;
+  display: block;
+  min-width: 150px;
+  width: 10%;
+  flex-grow: 2;
+}
+
+div.shift-box > div.small {
+  width: 3%;
+  min-width: 100px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.filter.selected {
+  background-color: lightgreen;
+}
+
+span.filter {
+  padding: 8px;
+  font-size: 20pt;
+  background-color: lightgrey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+span.filter:hover {
+  background-color: darken(lightgrey, 10);
+}
+
+span.filter.selected:hover {
+  background-color: darken(lightgreen, 10);
+}
+
+#filter-panel {
+  margin: 20px;
+  text-align: center;
+}
+
+#filter-panel > div {
+  margin: 20px;
+  border: solid 3px black;
+  border-radius: 3px;
+  padding: 10px;
+  display: inline-block;
+}
+
+#filter-panel > div >  h3 {
+  padding-bottom: 10px;
+}

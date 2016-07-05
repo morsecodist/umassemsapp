@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Umass EMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bundle.min.css">
+    <link  href="cropperjs/dist/cropper.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body ng-app="UmassEMSApp">
+    <script src="marked/lib/marked.js"></script>
+    <script src="angular-marked/dist/angular-marked.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="angular-cookies/angular-cookies.min.js"></script>
+    <script src="cropperjs/dist/cropper.js"></script>
+    <script src="js/app.min.js"></script>
+    <div ng-controller="PanelController">
+      <div id="nav-bar">
+        <div>
+          <a ui-sref="home"><span>UmassEMS</span></a>
+        </div>
+        <div id="nav-links">
+          <a ui-sref="shifts" id="shifts" class="page">Shifts</a>
+          <a ui-sref="staff" id="staff" class="page">Staff</a>
+          <a ui-sref="about" id="about" class="page">About</a>
+          <a ui-sref="join" id="join" class="page">Join</a>
+          <a ui-sref="class" id="class" class="page">Class</a>
+          <a ui-sref="cpr" id="cpr" class="page">CPR</a>
+          <a ui-sref="info" id="info" class="page">Info</a>
+        </div>
+      </div>
+      <div ui-view id="view"></div>
+    </div>
+  </body>
+</html>

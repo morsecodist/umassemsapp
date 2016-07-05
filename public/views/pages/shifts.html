@@ -1,0 +1,35 @@
+<div class="panel" ng-controller="ShiftController">
+  <h1>Shifts</h1>
+  <p>Select the type of shift you want by clicking the buttons below</p>
+  <div id="filter-panel">
+    <div id="role">
+      <h3>Role</h3>
+      <span ng-click="one = !one; filter()" ng-class="one?'selected':''" class="filter">One</span>
+      <span ng-click="two = !two; filter()" ng-class="two?'selected':''" class="filter">Two</span>
+      <span ng-click="vol = !vol; filter()" ng-class="vol?'selected':''" class="filter">Volunteer</span>
+    </div>
+    <div id="weekday">
+      <h3>Weekday</h3>
+      <span ng-click="sunday = !sunday; filter()" ng-class="sunday?'selected':''" class="filter">Su</span>
+      <span ng-click="monday = !monday; filter()" ng-class="monday?'selected':''" class="filter">M</span>
+      <span ng-click="tuesday = !tuesday; filter()" ng-class="tuesday?'selected':''" class="filter">Tu</span>
+      <span ng-click="wednesday = !wednesday; filter()" ng-class="wednesday?'selected':''" class="filter">W</span>
+      <span ng-click="thursday = !thursday; filter()" ng-class="thursday?'selected':''" class="filter">Th</span>
+      <span ng-click="friday = !friday; filter()" ng-class="friday?'selected':''" class="filter">F</span>
+      <span ng-click="saturday = !saturday; filter()" ng-class="saturday?'selected':''" class="filter">Sa</span>
+    </div>
+    <div id="time">
+      <h3>Time of Day</h3>
+      <span ng-click="morning = !morning; filter()" ng-class="morning?'selected':''" class="filter">Morning</span>
+      <span ng-click="afternoon = !afternoon; filter()" ng-class="afternoon?'selected':''" class="filter">Afternoon</span>
+      <span ng-click="evening = !evening; filter()" ng-class="evening?'selected':''" class="filter">Evening</span>
+    </div>
+    <div id="venue">
+      <h3>Venue</h3>
+      <span ng-click="fac = !fac; filter()" ng-class="fac?'selected':''" class="filter">FAC</span>
+      <span ng-click="mullins = !mullins; filter()" ng-class="mullins?'selected':''" class="filter">Mullins</span>
+      <span ng-click="other = !other; filter()" ng-class="other?'selected':''" class="filter">Other</span>
+    </div>
+  </div>
+  <div shiftboxes info="filteredShifts"></div>
+</div>

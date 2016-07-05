@@ -1,0 +1,53 @@
+#nav-bar {
+  background-color: $ems-navy;
+  font-size: 30px;
+  padding-bottom: 0px;
+  border-bottom: 8px solid $umass-maroon;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  font-family: sans-serif;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  min-width: 1100px;
+  top: 0px;
+}
+
+#nav-bar > div#nav-links {
+  flex-grow: 1;
+  text-align: right;
+}
+
+#nav-bar > div > a > span {
+  font-weight: bold;
+  padding: 5px;
+  margin-left: 5px;
+  padding-right: 10px;
+  color: white;
+}
+
+#nav-bar > div > a.page {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: normal;
+}
+
+#nav-bar > div > a.page:hover {
+  background-color: $umass-maroon;
+  color: white;
+  font-weight: normal;
+}
+
+#nav-bar > div > a.page.selected {
+  background-color: $umass-maroon;
+}
+
+#view {
+  margin-top: 60px;
+}

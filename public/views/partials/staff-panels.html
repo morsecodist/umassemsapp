@@ -1,0 +1,14 @@
+<div ng-repeat="person in people" class="person-box">
+  <h3>{{ person.Role }}</h3>
+  <div class="person-container">
+  <div class="left"><img ng-src="{{ person.Image }}" class="human-picture"/></div>
+  <div class="right">
+    <h3>{{ person.Name }}</h3>
+    <p class="bold" ng-if="person.Office_Hours_1">Office Hours</p>
+    <p ng-if="person.Office_Hours_1">{{ person.Office_Hours_1 }}</p>
+    <p ng-if="person.Office_Hours_2">{{ person.Office_Hours_2 }}</p>
+    <p><a ng-href="mailto:{{ person.Email }}" >{{ person.Email }}</a></p>
+    <p>{{ person.Bio }}</p>
+  </div>
+</div>
+</div>

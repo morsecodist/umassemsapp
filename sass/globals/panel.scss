@@ -1,0 +1,21 @@
+div.panel {
+  padding: 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20pt;
+}
+
+div.panel p {
+  font-size: 14pt;
+}
+
+div.info {
+  margin: 10px;
+}
+
+div.panel > p {
+  font-size: 16pt;
+  padding: 10px;
+}

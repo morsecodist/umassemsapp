@@ -1,0 +1,59 @@
+#authorized-image {
+  height: 200px;
+}
+
+#cpr-costs {
+  border-radius: 5px;
+  background-color: lightgrey;
+  font-size: 20pt;
+  padding: 0px;
+  border-collapse: collapse;
+  text-align: left;
+  display: inline-block;
+}
+
+#cpr-costs td:nth-child(even) {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: center;
+}
+
+#cpr-costs td, th {
+  min-width: 100px;
+  padding: 10px;
+}
+
+#cpr-costs tr:nth-child(even) {
+  background-color: $light-navy;
+}
+
+#cpr-costs tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+#cpr-costs tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+#costs {
+  min-width: 420px;
+}
+
+#discounts {
+  border-radius: 3px;
+  border: 2px solid $umass-maroon;
+  padding: 10px;
+  max-width: 700px;
+}
+
+#discounts > h2 {
+  background-color: $light-navy;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+#discounts > div > p {
+  margin-top: 10px;
+}

@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    font-weight: bold;
+    color: $umass-maroon;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: black;
+}
+
+@font-face {
+  font-family: Raleway;
+  src:url("/assets/fonts/raleway/Raleway-Regular.ttf");
+  font-weight: normal;
+}
+
+div.text-content {
+  text-align: left;
+  font-size: 14pt;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.text-content > h2 {
+  border-bottom: 3px solid $umass-maroon;
+}
+
+div.text-content > div > p {
+  margin-top: 10px;
+}
+
+div.text-content > div pre {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.text-content > div > ol {
+  margin-top: 10px;
+  padding-left: 20px;
+}
