@@ -38,23 +38,3 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/pages/info.html'
     });
 });
-
-app.directive('staffpanels', () => {
-  return {
-    restrict: 'A',
-    scope:  {
-      people: '=info'
-    },
-    templateUrl: 'views/partials/staff-panels.html'
-  };
-});
-
-app.directive('shiftboxes', () => {
-  return {
-    restrict: 'A',
-    scope:  {
-      shifts: '=info'
-    },
-    templateUrl: 'views/partials/shift.html'
-  };
-});
