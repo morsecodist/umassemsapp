@@ -9,9 +9,6 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
         angular.element(document.getElementById(fromState.name)).removeClass('selected');
       });
 
-    // This call makes sure the page is loaded before it checks if the line is necessary
-    // Doesn't check for mobile, not necessary
-    if(!mobilecheck()) checkLine();
     $scope.directors = data.Directors;
     $scope.staff = data.Staff;
     $scope.class = data.Class[0];
