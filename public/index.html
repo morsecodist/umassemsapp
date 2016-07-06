@@ -13,10 +13,11 @@
     <script src="angular-marked/dist/angular-marked.js"></script>
     <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="angular-cookies/angular-cookies.min.js"></script>
+    <script src="angular-touch/angular-touch.min.js"></script>
     <script src="cropperjs/dist/cropper.js"></script>
     <script src="js/app.min.js"></script>
     <div ng-controller="PanelController">
-      <div id="nav-bar">
+      <div ng-if="!mobile" id="nav-bar" class="top-bar">
         <div>
           <a ui-sref="home"><span>UmassEMS</span></a>
         </div>
@@ -30,7 +31,11 @@
           <a ui-sref="info" id="info" class="page">Info</a>
         </div>
       </div>
-      <div ui-view id="view"></div>
+      <div ng-if="mobile" class="top-bar" id="mobile-navbar">
+        <span id="menu-button">☰</span>
+        <a ui-sref="home"><span>UmassEMS</span></a>
+      </div>
+      <div ui-view id="view" ng-swipe-right="ping()"></div>
     </div>
   </body>
 </html>

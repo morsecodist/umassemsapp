@@ -1,5 +1,5 @@
 /* jshint esversion:6 */
-var app = angular.module("UmassEMSApp", ['ui.router', 'hc.marked', 'ngCookies']);
+var app = angular.module("UmassEMSApp", ['ui.router', 'hc.marked', 'ngCookies', 'ngTouch']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/home");

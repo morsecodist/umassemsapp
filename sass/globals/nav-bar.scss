@@ -1,16 +1,8 @@
 #nav-bar {
-  background-color: $ems-navy;
-  font-size: 30px;
-  padding-bottom: 0px;
-  border-bottom: 8px solid $umass-maroon;
-  padding-top: 10px;
-  padding-bottom: 4px;
   font-family: sans-serif;
   display: flex;
-  position: fixed;
-  width: 100%;
   min-width: 1100px;
-  top: 0px;
+  font-size: 22pt;
 }
 
 #nav-bar > div#nav-links {
@@ -50,4 +42,28 @@
 
 #view {
   margin-top: 60px;
+}
+
+.top-bar {
+  background-color: $ems-navy;
+  padding-bottom: 0px;
+  border-bottom: 8px solid $umass-maroon;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  color: white;
+}
+
+.top-bar a {
+  color: white;
+}
+
+#mobile-navbar {
+  font-size: 40pt;
+}
+
+#menu-button {
+  font-weight: bold;
 }

@@ -2,7 +2,8 @@
   "name": "app-name",
   "version": "0.0.1",
   "dependencies": {
-    "angular-marked": "latest"
+    "angular-marked": "latest",
+    "ngtouch": "^1.0.1"
   },
   "private": true
 }
