@@ -1,0 +1,19 @@
+div#mobile-menu {
+  background-color: lightgrey;
+  height: 100%;
+}
+
+div#mobile-menu > p {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  color: black;
+  font-size: 48pt;
+  text-align: left;
+}
+
+div#mobile-menu > p:hover {
+  background-color: darken(lightgrey, 5);
+}

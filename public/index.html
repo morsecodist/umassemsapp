@@ -14,6 +14,7 @@
     <script src="angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="angular-cookies/angular-cookies.min.js"></script>
     <script src="angular-touch/angular-touch.min.js"></script>
+    <script src="pageslide/angular-pageslide-directive.js"></script>
     <script src="cropperjs/dist/cropper.js"></script>
     <script src="js/app.min.js"></script>
     <div ng-controller="PanelController">
@@ -32,10 +33,21 @@
         </div>
       </div>
       <div ng-if="mobile" class="top-bar" id="mobile-navbar">
-        <span id="menu-button">☰</span>
+        <span ng-click="openMenu()" id="menu-button">☰</span>
         <a ui-sref="home"><span>UmassEMS</span></a>
       </div>
-      <div ui-view id="view" ng-swipe-right="ping()"></div>
+      <pageslide ps-speed="0.2" ps-size="50%" ps-open="checked" ps-side="left">
+        <div id="mobile-menu" ng-click="closeMenu()">
+          <p ui-sref="shifts" id="shifts" class="page">Shifts</p>
+          <p ui-sref="staff" id="staff" class="page">Staff</p>
+          <p ui-sref="about" id="about" class="page">About</p>
+          <p ui-sref="join" id="join" class="page">Join</p>
+          <p ui-sref="class" id="class" class="page">Class</p>
+          <p ui-sref="cpr" id="cpr" class="page">CPR</p>
+          <p ui-sref="info" id="info" class="page">Info</p>
+       </div>
+      </pageslide>
+      <div ui-view id="view" ng-swipe-left="closeMenu()" ng-swipe-right="openMenu()"></div>
     </div>
   </body>
 </html>
