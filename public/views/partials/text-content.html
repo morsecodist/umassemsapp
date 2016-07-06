@@ -3,7 +3,7 @@
     <h2>{{ one }}</h2>
     <div marked="content[one]"></div>
   </div>
-  <div class="line"></div>
+  <div class="line" ng-if="!$parent.mobile"></div>
   <div class="text-content">
     <h2>{{ two }}</h2>
     <div marked="content[two]"></div>
