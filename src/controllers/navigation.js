@@ -1,5 +1,5 @@
 /* jshint esversion:6 */
-app.controller('PanelController', function($scope, $http, $state, $rootScope, GoogleSheets, marked) {
+app.controller('PanelController', function($scope, $http, $state, $rootScope, GoogleSheets, marked, MobileCheck) {
   GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
   .then((data) => {
     angular.element(document.getElementById($state.current.name)).addClass('selected');
@@ -9,6 +9,7 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
         angular.element(document.getElementById(fromState.name)).removeClass('selected');
       });
 
+    $scope.mobile = MobileCheck.check();
     $scope.directors = data.Directors;
     $scope.staff = data.Staff;
     $scope.class = data.Class[0];

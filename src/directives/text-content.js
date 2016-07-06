@@ -1,5 +1,5 @@
 /* jshint esversion:6 */
-app.directive('textContent', ['$window', ($window) => {
+app.directive('textContent', ['$window', 'MobileCheck', ($window, MobileCheck) => {
   return {
     restrict: 'E',
     scope: {
@@ -20,7 +20,7 @@ app.directive('textContent', ['$window', ($window) => {
           angular.element(document.querySelectorAll('.line')).removeClass('hidden');
       }
       angular.element($window).bind('resize', lineCheck);
-      if(!mobilecheck()) lineCheck();
+      if(!MobileCheck.check()) lineCheck();
     }
   };
 }]);
