@@ -17,7 +17,7 @@
     <script src="pageslide/angular-pageslide-directive.js"></script>
     <script src="cropperjs/dist/cropper.js"></script>
     <script src="js/app.min.js"></script>
-    <div ng-controller="PanelController">
+    <div ng-controller="PanelController" id="panel-container">
       <div ng-if="!mobile" id="nav-bar" class="top-bar">
         <div>
           <a ui-sref="home"><span>UmassEMS</span></a>
@@ -47,7 +47,7 @@
           <p ui-sref="info" id="info" class="page">Info</p>
        </div>
       </pageslide>
-      <div ui-view id="view" ng-swipe-left="closeMenu()" ng-swipe-right="openMenu()"></div>
+      <div ui-view id="view" ng-click="closeMenu()" ng-swipe-left="closeMenu()" ng-swipe-right="openMenu()"></div>
     </div>
   </body>
 </html>
