@@ -94,13 +94,13 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
         ($scope.two && ($scope.two === shift.twoSlots > 0)) ||
         ($scope.vol && ($scope.vol === shift.volSlots > 0))) &&
 
-        (($scope.sunday && ($scope.sunday === (shift.day === 'Sunday'))) ||
-        ($scope.monday && ($scope.monday === (shift.day === 'Monday'))) ||
-        ($scope.tuesday && ($scope.tuesday === (shift.day === 'Tuesday'))) ||
-        ($scope.wednesday && ($scope.wednesday === (shift.day === 'Wednesday'))) ||
-        ($scope.thursday && ($scope.thursday === (shift.day === 'Thursday'))) ||
-        ($scope.friday && ($scope.friday === (shift.day === 'Friday'))) ||
-        ($scope.saturday && ($scope.saturday === (shift.day === 'Saturday')))) &&
+        (($scope.sunday && ($scope.sunday === (shift.day === 'Su'))) ||
+        ($scope.monday && ($scope.monday === (shift.day === 'M'))) ||
+        ($scope.tuesday && ($scope.tuesday === (shift.day === 'Tu'))) ||
+        ($scope.wednesday && ($scope.wednesday === (shift.day === 'W'))) ||
+        ($scope.thursday && ($scope.thursday === (shift.day === 'Th'))) ||
+        ($scope.friday && ($scope.friday === (shift.day === 'Fr'))) ||
+        ($scope.saturday && ($scope.saturday === (shift.day === 'Sa')))) &&
 
         (($scope.morning && ($scope.morning === (shift.callTime >= 340 && shift.callTime < 1140))) ||
         ($scope.afternoon && ($scope.afternoon === (shift.callTime >= 1140 && shift.callTime < 1740))) ||
@@ -131,13 +131,13 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
         else if(str === "V") shift.volSlots++;
       }
       function weekDay(n) {
-        if(n === 0) return "Sunday";
-        if(n === 1) return "Monday";
-        if(n === 2) return "Tuesday";
-        if(n === 3) return "Wednesday";
-        if(n === 4) return "Thursday";
-        if(n === 5) return "Friday";
-        if(n === 6) return "Saturday";
+        if(n === 0) return "Su";
+        if(n === 1) return "M";
+        if(n === 2) return "Tu";
+        if(n === 3) return "W";
+        if(n === 4) return "Th";
+        if(n === 5) return "F";
+        if(n === 6) return "Sa";
       }
       addSlot(obj['EMT_#1']);
       addSlot(obj['EMT_#2']);

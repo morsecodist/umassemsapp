@@ -1,9 +1,8 @@
-div#mobile-menu {
+#mobile-menu {
   background-color: lightgrey;
-  height: 100%;
 }
 
-div#mobile-menu > p {
+#mobile-menu > div > p {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding-top: 5%;
@@ -14,6 +13,6 @@ div#mobile-menu > p {
   text-align: left;
 }
 
-div#mobile-menu > p:hover {
+#mobile-menu > div > p:hover {
   background-color: darken(lightgrey, 5);
 }

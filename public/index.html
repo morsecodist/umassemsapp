@@ -36,8 +36,8 @@
         <span ng-click="openMenu()" id="menu-button">☰</span>
         <a ui-sref="home"><span>UmassEMS</span></a>
       </div>
-      <pageslide ps-speed="0.2" ps-size="50%" ps-open="checked" ps-side="left">
-        <div id="mobile-menu" ng-click="closeMenu()">
+      <pageslide ps-speed="0.2" ps-size="50%" ps-open="checked" ps-side="left" id="mobile-menu">
+        <div ng-click="closeMenu()">
           <p ui-sref="shifts" id="shifts" class="page">Shifts</p>
           <p ui-sref="staff" id="staff" class="page">Staff</p>
           <p ui-sref="about" id="about" class="page">About</p>
