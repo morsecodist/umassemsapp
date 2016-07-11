@@ -42,8 +42,11 @@
 }
 
 #view {
-  margin-top: 60px;
   flex: 1;
+}
+
+.view {
+  margin-top: 60px;
 }
 
 .top-bar {
@@ -62,11 +65,34 @@
 }
 
 #mobile-navbar {
-  font-size: 54pt;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  font-size: 60pt;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  text-align: left;
+}
+
+#mobile-navbar > div {
+  width: 10%;
+  flex-grow: 1;
+}
+
+#mobile-navbar > div.bar-center {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: auto;
 }
 
 #menu-button {
   font-weight: bold;
+  border-radius: 30%;
+  padding: 1vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 1vh;
+  margin-right: 2vh;
+}
+
+#menu-button:active {
+  background-color: lighten($ems-navy, 10);
 }

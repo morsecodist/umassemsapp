@@ -10,13 +10,13 @@ div.flex.center {
 
 div.flex > div:not(.line):not(.image-div) {
   width: 40%;
-  padding-bottom: 20px;
+  padding-bottom: 2vh;
   min-width: 500px;
   flex-grow: 5;
 }
 
 div.image-div {
-  padding: 20px;
+  padding: 2vw;
   text-align: center;
   flex-grow: 1;
 }
@@ -26,8 +26,8 @@ div.image-div > img {
 }
 
 div.flex > .line {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
   padding: 0px;
   min-width: 3px;
   background-color: $ems-navy;
