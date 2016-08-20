@@ -34,7 +34,6 @@ body {
 
 div.text-content {
   text-align: left;
-  font-size: 14pt;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 10px;
@@ -71,12 +70,7 @@ h3 {
   font-size: 3vh;
 }
 
-p {
+p, li, code {
   font-size: 2vh;
   padding-bottom: 0.2vh;
-}
-
-pre {
-  font-size: 2vh;
-  padding: 1vh;
 }

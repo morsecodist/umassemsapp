@@ -53,11 +53,22 @@ div.right * {
   margin-bottom: 10px;
 }
 
-div.person-box img {
-  margin: 0px;
+.person-crop-container {
+  width: 24vh;
+  height: 32vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 img.human-picture {
-  height: 300px;
-  clip: rect(0px, 230px, 300px, 0px);
+  height: 32vh;
+  /** This might be the hackiest thing you have ever done
+    * For some reason this centers and crops images mantaining height
+    * The images must be less wide than the margins
+    * One day you should find a less hacky way of doing this
+    * But that is not this day */
+  margin-left: -1000vw;
+  margin-right: -1000vw;
+  display:inline;
 }
