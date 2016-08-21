@@ -4,24 +4,13 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 
-gulp.task('default', ['sass', 'scripts', 'sass-mobile']);
+gulp.task('default', ['sass', 'scripts', 'sass:watch', 'scripts:watch']);
 
 gulp.task('sass', function () {
-  return gulp.src(['./sass/reusables/*.scss', './sass/pages/*.scss', './sass/globals/*.scss'])
+  return gulp.src(['./sass/reusables/*.scss', './sass/pages/*.scss', './sass/components/*.scss', './sass/globals/*.scss'])
     .pipe(concat('bundle.min.css'))
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('./public/stylesheets/'));
-});
-
-gulp.task('sass-mobile', function () {
-  return gulp.src(['./sass/reusables/*.scss', './sass/mobile/*.scss'])
-    .pipe(concat('mobile.min.css'))
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('./public/stylesheets/'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
 gulp.task('scripts', function() {
@@ -34,4 +23,12 @@ gulp.task('scripts', function() {
       mangle: false
     }))
     .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
+});
+
+gulp.task('scripts:watch', function () {
+  gulp.watch('./src/**/*.js', ['scripts']);
 });
