@@ -3,7 +3,7 @@ app.directive('staffpanels', () => {
   return {
     restrict: 'A',
     scope:  {
-      people: '=info'
+      people: '='
     },
     templateUrl: 'views/partials/staff-panels.html'
   };
