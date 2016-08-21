@@ -6,6 +6,15 @@ div.flex {
 div.flex.center {
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
+}
+
+div.flex.center > div {
+  text-align: center;
+}
+
+div.flex.center > div > div {
+  display: inline-block;
 }
 
 div.flex > div:not(.line):not(.image-div) {
