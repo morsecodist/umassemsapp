@@ -40,6 +40,24 @@ div.person-container {
   display: flex;
 }
 
+div.person-container.mobile {
+  flex-direction: column;
+  text-align: center;
+}
+
+div.person-container.mobile > div > div.person-crop-container {
+  height: 100vw;
+  width: 75vw;
+}
+
+div.person-container.mobile > div > div.person-crop-container > img {
+  height: 100vw;
+}
+
+div.person-container > div > div {
+  display: inline-block;
+}
+
 div.left {
   display: block;
 }
