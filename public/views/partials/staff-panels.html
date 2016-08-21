@@ -1,8 +1,10 @@
 <div ng-repeat="person in people" class="person-box">
   <h3>{{ person.Role }}</h3>
-  <div class="person-container">
-  <div class="left person-crop-container">
-    <img ng-src="{{ person.Image }}" class="human-picture"/>
+  <div class="person-container" ng-class="($parent.$parent.mobile)?'mobile':''">
+  <div>
+    <div class="left person-crop-container">
+      <img ng-src="{{ person.Image }}" class="human-picture"/>
+    </div>
   </div>
   <div class="right">
     <h3>{{ person.Name }}</h3>
