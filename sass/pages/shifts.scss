@@ -15,6 +15,7 @@ div.shift-box > div {
   min-width: 150px;
   width: 10%;
   flex-grow: 10;
+  word-wrap: break-word;
 }
 
 div.shift-box > div.small {

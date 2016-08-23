@@ -1,0 +1,55 @@
+/* PC global font sizes */
+
+.pc h1 {
+  font-size: 11mm;
+}
+
+.pc h2 {
+  font-size: 9mm;
+}
+
+.pc h3 {
+  font-size: 7mm;
+}
+
+.pc p, li, code {
+  font-size: 5mm;
+}
+
+.pc td, .pc th {
+  font-size: 7mm;
+}
+
+.pc .big-text {
+  font-size: 7mm;
+}
+
+/* Mobile global font sizes */
+
+.mobile h1 {
+  font-size: 20mm;
+}
+
+.mobile h2 {
+  font-size: 17mm;
+}
+
+.mobile h3 {
+  font-size: 13mm;
+}
+
+.mobile p, li {
+  font-size: 5mm;
+}
+
+.mobile td, .mobile th {
+  font-size: 15mm;
+}
+
+.mobile code {
+  font-size: 12mm;
+}
+
+.mobile .big-text {
+  font-size: 8mm;
+}

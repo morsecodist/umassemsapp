@@ -1,26 +1,43 @@
-#authorized-image {
-  height: 200px;
+#cpr-logo {
+  height: 250px;
+}
+
+#cpr-middle {
+  margin-top: 50px;
+}
+
+#costs > div {
+  width: 100%;
+}
+
+#cpr-middle > div {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 #cpr-costs {
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: lightgrey;
   padding: 0px;
   border-collapse: collapse;
   text-align: left;
-  display: inline-block;
+  width: 100%;
 }
 
-#cpr-middle > div {
-  width: auto;
+#cpr-costs tbody {
+  width: 100%;
 }
 
 #cpr-costs td:nth-child(even) {
   text-align: right;
+  padding-right: 5%;
 }
 
 th:last-child {
-  text-align: center;
+  text-align: right;
+  padding-right: 5%;
 }
 
 #cpr-costs td, th {
@@ -33,28 +50,26 @@ th:last-child {
 }
 
 #cpr-costs tr:last-child td:last-child {
-  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 3px;
 }
 
 #cpr-costs tr:last-child td:first-child {
-  border-bottom-left-radius: 5px;
-}
-
-#costs {
-  min-width: 420px;
+  border-bottom-left-radius: 3px;
 }
 
 #discounts {
   border-radius: 3px;
   border: 2px solid $umass-maroon;
   padding: 10px;
-  max-width: 700px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 #discounts > h2 {
   background-color: $light-navy;
   border-radius: 3px;
   padding: 5px;
+  flex-grow: 0;
 }
 
 #discounts > div > p {

@@ -62,15 +62,20 @@ div.text-content > div > ol {
  visibility: hidden;
 }
 
-h2 {
-  font-size: 4vh;
-}
-
-h3 {
-  font-size: 3vh;
-}
-
 p, li, code {
-  font-size: 2vh;
-  padding-bottom: 0.2vh;
+  padding-bottom: 0.2vw;
+}
+
+code {
+  font-style: italic;
+}
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-center > div.vertical-spacer {
+  flex-grow: 1;
+  display: block;
 }

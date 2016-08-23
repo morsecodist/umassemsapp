@@ -27,12 +27,15 @@ div.person-box {
   border-radius: 2px;
 }
 
+.mobile div.person-box {
+  text-align: center;
+}
+
 div.person-box > h3 {
   color: white;
   background-color: darken($umass-maroon, 10);
   padding: 5px;
   margin-bottom: 10px;
-  text-align: left;
   font-weight: bold;
 }
 
@@ -40,17 +43,17 @@ div.person-container {
   display: flex;
 }
 
-div.person-container.mobile {
+.mobile div.person-container {
   flex-direction: column;
-  text-align: center;
+  padding: 3%;
 }
 
-div.person-container.mobile > div > div.person-crop-container {
+.mobile div.person-container > div > div.person-crop-container {
   height: 100vw;
   width: 75vw;
 }
 
-div.person-container.mobile > div > div.person-crop-container > img {
+.mobile div.person-container > div > div.person-crop-container > img {
   height: 100vw;
 }
 
