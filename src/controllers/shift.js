@@ -181,7 +181,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
 
     $scope.directorPicks = shifts.filter((shift) =>
       shift.directorPick);
-    console.log($scope.directorPicks);
+      
     $scope.allShifts = shifts;
     $scope.filter();
 
