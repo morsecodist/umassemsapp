@@ -3,6 +3,11 @@
     <h2>Mission CPR</h2>
     <div marked="content['Mission CPR']"></div>
   </div>
+  <div>
+    <a target="_blank" href="https://docs.google.com/a/umass.edu/document/d/1zgC0nnr583IqrUxRD_HqFlqZuvTWw44Pf_hXba7LUZk/edit?usp=sharing">
+      Click to view current schedule
+    </a>
+  </div>
   <div id="cpr-middle" class="flex">
     <div id="costs">
       <div class="vertical-center">
@@ -12,17 +17,9 @@
             <th>Class</th>
             <th>Cost</th>
           </tr>
-          <tr>
-            <td>Heart Saver CPR/AED</td>
-            <td>$50</td>
-          </tr>
-          <tr>
-            <td>Healthcare Provider</td>
-            <td>$60</td>
-          </tr>
-          <tr>
-            <td>CPR/AED with First Aid</td>
-            <td>$75</td>
+          <tr ng-repeat="row in cprCosts">
+            <td>{{ row.Class }}</td>
+            <td>${{ row.Cost }}</td>
           </tr>
         </table>
         <div class="vertical-spacer"></div>

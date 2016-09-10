@@ -20,6 +20,7 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
     $scope.directors = data.Directors;
     $scope.staff = data.Staff;
     $scope.class = data.Class[0];
+    $scope.cprCosts = data['CPR Costs'];
     $scope.content = {};
     data.Content.forEach((obj) => $scope.content[obj.Title] = obj.Content);
     if($scope.class.Offered === 'No') {
