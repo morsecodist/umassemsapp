@@ -7,6 +7,7 @@
       <span ng-click="one = !one; filter()" ng-class="one?'selected':''" class="filter big-text">One</span>
       <span ng-click="two = !two; filter()" ng-class="two?'selected':''" class="filter big-text">Two</span>
       <span ng-click="vol = !vol; filter()" ng-class="vol?'selected':''" class="filter big-text">Volunteer</span>
+      <span ng-click="dir = !dir; filter()" ng-class="dir?'selected':''" class="filter big-text">Director Pick</span>
     </div>
     <div id="weekday">
       <h3>Weekday</h3>
@@ -31,5 +32,6 @@
       <span ng-click="other = !other; filter()" ng-class="other?'selected':''" class="filter big-text">Other</span>
     </div>
   </div>
+  <div ng-if="dir" class="director-pick" shiftboxes info="directorPicks"></div>
   <div shiftboxes info="filteredShifts"></div>
 </div>

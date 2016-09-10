@@ -25,8 +25,9 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
   } else {
     $cookies.putObject('UmassEMS_shift_preferences', {
       one: false,
-      two: false,
-      vol: false,
+      two: true,
+      vol: true,
+      dir: true,
       sunday: true,
       monday: true,
       tuesday: true,
@@ -43,8 +44,10 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     });
 
     $scope.one = false;
-    $scope.two = false;
-    $scope.vol = false;
+    $scope.two = true;
+    $scope.vol = true;
+
+    $scope.dir = true;
 
     $scope.sunday = true;
     $scope.monday = true;
@@ -69,6 +72,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
       one: $scope.one,
       two: $scope.two,
       vol: $scope.vol,
+      dir: $scope.dir,
       sunday: $scope.sunday,
       monday: $scope.monday,
       tuesday: $scope.tuesday,
@@ -112,15 +116,22 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     });
   };
 
-  setInterval(() => GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1KU0v-lsoMF3JxgfInrtHki4zkiCcT5SXO2S33UqTJmM')
+  setInterval(() => GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
   .then((data) => {
-    $scope.allShifts = data.Shifts.map((obj) => {
+    let shifts = data.Shifts;
+    // This will only fill them all in if the first one has a date
+    shifts.map((shift, i) => {
+      if(shift.Date === '' && i > 0) shift.Date = shifts[i - 1].Date;
+      return shift;
+    });
+
+    shifts = shifts.map((obj) => {
       var shift = {};
       shift.callTime = obj.Call_Time;
       shift.event = obj.Event;
       shift.venue = obj.Venue;
       shift.date = new Date(obj.Date);
-      shift.dateString = shift.date.getMonth() + '/' +  shift.date.getDate();
+      shift.dateString = (shift.date.getMonth() + 1) + '/' +  shift.date.getDate();
       shift.day = weekDay(shift.date.getDay());
       shift.oneSlots = 0;
       shift.twoSlots = 0;
@@ -144,9 +155,34 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
       addSlot(obj['EMT_#3']);
       addSlot(obj['EMT_#4']);
       addSlot(obj.Volunteer);
+      shift.directorPick = String(obj['EMT_#1']).toLowerCase() === 'director pick';
       return shift;
     });
 
+    let meeting = (shifts[0].date.getDate() >= (new Date()).getDate())?0:1;
+
+    // Converts dates into UTC time stamps from midnight on their given day
+    function roundDate(timeStamp) {
+      let rounded = timeStamp;
+      rounded -= rounded % (24 * 60 * 60 * 1000);//subtract amount of time since midnight
+      rounded += new Date().getTimezoneOffset() * 60 * 1000;//add on the timezone offset
+      return (new Date(rounded)).getTime();
+    }
+
+    let cutoff = shifts.filter((shift) =>
+      (shift.event === "") &&
+      (roundDate(shift.date) >= roundDate(new Date())))[meeting];
+
+    cutoff = cutoff?cutoff.date:shifts[shifts.length - 1].date;
+
+    shifts = shifts.filter((shift) =>
+      (shift.date > new Date()) &&
+      (roundDate(shift.date) <= roundDate(cutoff)));
+
+    $scope.directorPicks = shifts.filter((shift) =>
+      shift.directorPick);
+    console.log($scope.directorPicks);
+    $scope.allShifts = shifts;
     $scope.filter();
 
   }), 3000);

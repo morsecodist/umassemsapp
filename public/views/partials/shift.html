@@ -4,6 +4,7 @@
     <div class="small big-text">{{ shift.callTime }}</div>
     <div class="big-text">{{ shift.venue }}</div>
     <div class="big-text">{{ shift.event }}</div>
+    <div class="big-text bold" ng-if="shift.directorPick">Director Pick</div>
     <div class="small right big-text"><span ng-if="shift.oneSlots > 0">1</span></div>
     <div class="small right big-text"><span ng-if="shift.twoSlots > 0">2</span></div>
     <div class="small right big-text"><span ng-if="shift.volSlots > 0">V</span></div>
