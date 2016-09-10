@@ -25,10 +25,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/join',
       templateUrl: 'views/pages/join.html'
     })
-    .state('class', {
+    // Uncomment when we figure out what to do about the class
+    /*.state('class', {
       url: '/class',
       templateUrl: 'views/pages/class.html'
-    })
+    })*/
     .state('cpr', {
       url: '/cpr',
       templateUrl: 'views/pages/cpr.html'
