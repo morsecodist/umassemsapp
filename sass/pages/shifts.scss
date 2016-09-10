@@ -15,7 +15,6 @@ div.director-pick > div.shift-box {
 
 div.shift-box > div {
   margin: 5px;
-  display: block;
   min-width: 150px;
   width: 10%;
   flex-grow: 10;
@@ -26,6 +25,15 @@ div.shift-box > div.small {
   width: 3%;
   min-width: 80px;
   text-align: center;
+  flex-grow: 1;
+}
+
+div.shift-slot-box {
+  display: flex;
+  flex-direction: row;
+}
+
+div.shift-slot-box > div {
   flex-grow: 1;
 }
 
