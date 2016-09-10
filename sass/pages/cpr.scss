@@ -6,6 +6,26 @@
   margin-top: 50px;
 }
 
+#cpr-link {
+  font-size: 10mm;
+  background-color: #ff4444;
+  padding: 3mm;
+  margin: 50px;
+  border-radius: 2px;
+}
+
+#cpr-link:hover {
+  background-color: darken(#ff4444, 10);
+}
+
+#cpr-link > a {
+  color: black;
+}
+
+#costs {
+  width: 5%;
+}
+
 #costs > div {
   width: 100%;
 }
