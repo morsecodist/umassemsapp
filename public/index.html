@@ -38,7 +38,7 @@
         <div ui-sref="home" class="bar-center">UMass EMS</div>
         <div></div>
       </div>
-      <pageslide ps-speed="0.2" ps-size="50%" ps-open="checked" ps-side="left" id="mobile-menu">
+      <pageslide ng-if="mobile" ps-speed="0.2" ps-size="50%" ps-open="checked" ps-side="left" id="mobile-menu">
         <div ng-click="closeMenu()">
           <p ui-sref="shifts" id="shifts" class="page">Shifts</p>
           <p ui-sref="staff" id="staff" class="page">Staff</p>
