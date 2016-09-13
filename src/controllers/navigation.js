@@ -7,9 +7,7 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
   $scope.openMenu = () => $scope.checked = true;
   $scope.closeMenu = () => $scope.checked = false;
   $scope.toggleMenu = () => $scope.checked = !$scope.checked;
-
-  GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
-  .then((data) => {
+  function onData(data) {
     angular.element(document.getElementById($state.current.name)).addClass('selected');
     $rootScope.$on('$stateChangeStart',
       (event, toState, toParams, fromState, fromParams) => {
@@ -33,5 +31,14 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
       $scope.classMessage = $scope.classMessage = 'Registration for the ' + $scope.class.Term + ' ' + $scope.class.Year + ' class is now closed';
       $scope.classOpen = 'closed';
     }
+  }
+  GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
+  .then((data) => onData(data))
+  .catch(() => {
+    $http({
+      url: window.location.pathname + '/assets/fallback.json',
+      method: 'GET'
+    })
+    .then((data) => onData(data.data));
   });
 });
