@@ -1,3 +1,4 @@
 /public/js/*
 /public/stylesheets/*
 /bower_components/**/*
+/public/assets/fallback.json
