@@ -119,6 +119,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
   setInterval(() => GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
   .then((data) => {
     let shifts = data.Shifts;
+    shifts = shifts.filter((shift) => shift.Event !== 'DIRECTOR PICK');
     // This will only fill them all in if the first one has a date
     shifts.map((shift, i) => {
       if(shift.Date === '' && i > 0) shift.Date = shifts[i - 1].Date;
