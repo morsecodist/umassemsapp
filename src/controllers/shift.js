@@ -103,7 +103,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
         ($scope.tuesday && ($scope.tuesday === (shift.day === 'Tu'))) ||
         ($scope.wednesday && ($scope.wednesday === (shift.day === 'W'))) ||
         ($scope.thursday && ($scope.thursday === (shift.day === 'Th'))) ||
-        ($scope.friday && ($scope.friday === (shift.day === 'Fr'))) ||
+        ($scope.friday && ($scope.friday === (shift.day === 'F'))) ||
         ($scope.saturday && ($scope.saturday === (shift.day === 'Sa')))) &&
 
         (($scope.morning && ($scope.morning === (shift.callTime >= 340 && shift.callTime < 1140))) ||
@@ -185,5 +185,6 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
 
     $scope.allShifts = shifts;
     $scope.filter();
+    console.log(shifts);
   }).catch(() => $scope.shiftError = true), 3000);
 });
