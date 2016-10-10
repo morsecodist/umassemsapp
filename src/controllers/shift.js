@@ -116,7 +116,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     });
   };
 
-  function onData() {
+  function onData(data) {
     let shifts = data.Shifts;
     shifts = shifts.filter((shift) => shift.Event !== 'DIRECTOR PICK');
     // This will only fill them all in if the first one has a date
