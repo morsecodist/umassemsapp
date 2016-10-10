@@ -36,7 +36,7 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
   .then((data) => onData(data))
   .catch(() => {
     $http({
-      url: window.location.pathname + '/assets/fallback.json',
+      url: 'https://dune-eagle.hyperdev.space/content',
       method: 'GET'
     })
     .then((data) => onData(data.data));
