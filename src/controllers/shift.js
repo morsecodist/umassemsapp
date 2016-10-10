@@ -108,7 +108,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
 
         (($scope.morning && ($scope.morning === (shift.callTime >= 340 && shift.callTime < 1140))) ||
         ($scope.afternoon && ($scope.afternoon === (shift.callTime >= 1140 && shift.callTime < 1740))) ||
-        ($scope.evening && ($scope.evening === (shift.callTime >= 1740 && shift.callTime < 340)))) &&
+        ($scope.evening && ($scope.evening === (shift.callTime >= 1740 || shift.callTime < 340)))) &&
 
         (($scope.fac && ($scope.fac === (shift.venue === 'FAC'))) ||
         ($scope.mullins && ($scope.mullins === (shift.venue === 'Mullins'))) ||
