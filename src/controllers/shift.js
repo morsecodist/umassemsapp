@@ -187,11 +187,5 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
   }
 
   setInterval(() => GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
-  .then((data) => onData(data))
-  /*.catch(() =>
-    $http({
-      url: 'https://dune-eagle.hyperdev.space/content',
-      method: 'GET'
-    })
-    .then((data) => onData(data.data)))*/, 3000);
+  .then((data) => onData(data)), 3000);
 });

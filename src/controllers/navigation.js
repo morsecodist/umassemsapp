@@ -33,12 +33,5 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
     }
   }
   GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
-  .then((data) => onData(data))
-  /*.catch(() => {
-    $http({
-      url: 'https://dune-eagle.hyperdev.space/content',
-      method: 'GET'
-    })
-    .then((data) => onData(data.data));
-  })*/;
+  .then((data) => onData(data));
 });
