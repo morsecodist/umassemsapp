@@ -1,6 +1,9 @@
 /* jshint esversion:6 */
 app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies) {
 
+  var rate = 1000;
+  var interval;
+
   var preferences = $cookies.getObject('UmassEMS_shift_preferences');
   if(preferences) {
     $scope.one = preferences.one;
@@ -186,6 +189,29 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     $scope.filter();
   }
 
-  setInterval(() => GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
-  .then((data) => onData(data)), 3000);
+  function getShifts() {
+    return $http.jsonp('https://dune-eagle.hyperdev.space/shifts', {
+      params: {
+        callback: 'JSON_CALLBACK'
+      }}).then(function(data) {
+      return data.data;
+    }).then((data) => onData(data))
+    .catch((error) => {
+      rate = 3000;
+      return GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
+    })
+    .then((data) => onData(data))
+    .catch((error) => {
+      if(interval) clearInterval(interval);
+      $scope.shiftError = true;
+      return Promise.reject(error);
+    });
+  }
+
+  getShifts()
+  .then(() => interval = setInterval(() => getShifts(), rate))
+  .catch((error) => {
+    console.log('initial request')
+    console.log(error);
+  });
 });
