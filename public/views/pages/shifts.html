@@ -33,7 +33,7 @@
       <span ng-click="other = !other; filter()" ng-class="other?'selected':''" class="filter big-text">Other</span>
     </div>
   </div>
-  <p ng-if="shiftError" class="big-text">Unfortunately, the live shift menu is not available on your browser. Please use a different browser.</p>
+  <p ng-if="shiftError" class="big-text error">:( Unfortunately, shifts aren't working right now</p>
   <div ng-if="dir" class="director-pick" shiftboxes info="directorPicks"></div>
   <div shiftboxes info="filteredShifts"></div>
 </div>
