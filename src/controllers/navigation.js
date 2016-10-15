@@ -40,7 +40,7 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
   }).then((data) => onData(data))
   .catch((error) =>
     GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
-    .then((data) => console.log(data))
+    .then((data) => onData(data))
     .catch((error) => {
       console.log(error);
       alert("Fatal Error: This website is not working right now");
