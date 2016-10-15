@@ -199,12 +199,12 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     .catch((error) => {
       rate = 3000;
       return GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
-    })
-    .then((data) => onData(data))
-    .catch((error) => {
-      if(interval) clearInterval(interval);
-      $scope.shiftError = true;
-      return Promise.reject(error);
+      .then((data) => onData(data))
+      .catch((error) => {
+        if(interval) clearInterval(interval);
+        $scope.shiftError = true;
+        return Promise.reject(error);
+      })
     });
   }
 

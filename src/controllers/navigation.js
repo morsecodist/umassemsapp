@@ -32,6 +32,18 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
       $scope.classOpen = 'closed';
     }
   }
-  GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
-  .then((data) => onData(data));
+  $http.jsonp('https://dune-eagle.hyperdev.space/content', {
+    params: {
+      callback: 'JSON_CALLBACK'
+    }}).then(function(data) {
+    return data.data;
+  }).then((data) => onData(data))
+  .catch((error) =>
+    GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbztVcC1-T5tjTd8CQyIptJovEZDIQRNSz1JnwICh10_oQPUHDg/exec', '1c341g1M8VwbovXexk9H9Fh7CK2WhnOaGQV1VzZrfAho')
+    .then((data) => console.log(data))
+    .catch((error) => {
+      console.log(error);
+      alert("Fatal Error: This website is not working right now");
+    })
+  )
 });
