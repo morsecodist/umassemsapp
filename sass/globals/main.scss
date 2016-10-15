@@ -67,3 +67,8 @@ code {
   flex-grow: 1;
   display: block;
 }
+
+.error {
+  background-color: lighten(red, 15);
+  padding: 20px;
+}
