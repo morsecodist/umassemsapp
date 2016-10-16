@@ -34,6 +34,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/cpr',
       templateUrl: 'views/pages/cpr.html'
     })
+    .state('calendar', {
+      url: '/calendar',
+      templateUrl: 'views/pages/calendar.html'
+    })
     .state('info', {
       url: '/info',
       templateUrl: 'views/pages/info.html'
