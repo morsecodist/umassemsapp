@@ -97,25 +97,25 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
   $scope.filter = () => {
     updateCookie();
     $scope.filteredShifts = $scope.allShifts.filter((shift) => {
-      return (($scope.one && ($scope.one === shift.oneSlots > 0)) ||
-        ($scope.two && ($scope.two === shift.twoSlots > 0)) ||
-        ($scope.vol && ($scope.vol === shift.volSlots > 0))) &&
+      return (($scope.one && shift.oneSlots > 0) ||
+        ($scope.two && shift.twoSlots > 0) ||
+        ($scope.vol && shift.volSlots > 0)) &&
 
-        (($scope.sunday && ($scope.sunday === (shift.day === 'Su'))) ||
-        ($scope.monday && ($scope.monday === (shift.day === 'M'))) ||
-        ($scope.tuesday && ($scope.tuesday === (shift.day === 'Tu'))) ||
-        ($scope.wednesday && ($scope.wednesday === (shift.day === 'W'))) ||
-        ($scope.thursday && ($scope.thursday === (shift.day === 'Th'))) ||
-        ($scope.friday && ($scope.friday === (shift.day === 'F'))) ||
-        ($scope.saturday && ($scope.saturday === (shift.day === 'Sa')))) &&
+        (($scope.sunday && shift.day === 'Su') ||
+        ($scope.monday && shift.day === 'M') ||
+        ($scope.tuesday && shift.day === 'Tu') ||
+        ($scope.wednesday && shift.day === 'W') ||
+        ($scope.thursday && shift.day === 'Th') ||
+        ($scope.friday && shift.day === 'F') ||
+        ($scope.saturday && shift.day === 'Sa')) &&
 
-        (($scope.morning && ($scope.morning === (shift.callTime >= 340 && shift.callTime < 1140))) ||
-        ($scope.afternoon && ($scope.afternoon === (shift.callTime >= 1140 && shift.callTime < 1740))) ||
-        ($scope.evening && ($scope.evening === (shift.callTime >= 1740 || shift.callTime < 340)))) &&
+        (($scope.morning && (shift.callTime >= 340 && shift.callTime < 1140)) ||
+        ($scope.afternoon && (shift.callTime >= 1140 && shift.callTime < 1740)) ||
+        ($scope.evening && (shift.callTime >= 1740 || shift.callTime < 340))) &&
 
-        (($scope.fac && ($scope.fac === (shift.venue === 'FAC'))) ||
-        ($scope.mullins && ($scope.mullins === (shift.venue === 'Mullins'))) ||
-        ($scope.other && ($scope.other === (shift.venue !== 'FAC' && shift.venue !== 'Mullins'))));
+        (($scope.fac && (shift.venue === 'FAC')) ||
+        ($scope.mullins && (shift.venue === 'Mullins')) ||
+        ($scope.other && (shift.venue !== 'FAC' && shift.venue !== 'Mullins')));
     });
   };
 
@@ -190,22 +190,13 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
   }
 
   function getShifts() {
-    return $http.jsonp('https://dune-eagle.hyperdev.space/shifts', {
-      params: {
-        callback: 'JSON_CALLBACK'
-      }}).then(function(data) {
-      return data.data;
-    }).then((data) => onData(data))
-    .catch((error) => {
-      rate = 3000;
       return GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
       .then((data) => onData(data))
       .catch((error) => {
         if(interval) clearInterval(interval);
         $scope.shiftError = true;
         return Promise.reject(error);
-      })
-    });
+      });
   }
 
   getShifts()
