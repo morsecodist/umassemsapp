@@ -25,7 +25,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/join',
       templateUrl: 'views/pages/join.html'
     })
-    // Uncomment when we figure out what to do about the class
+    // Uncomment when class is offered
     /*.state('class', {
       url: '/class',
       templateUrl: 'views/pages/class.html'

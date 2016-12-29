@@ -1,10 +1,16 @@
 /* jshint esversion:6 */
 app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies) {
 
+  // Rate to poll for shift changes in milliseconds
   var rate = 1000;
+
+  // Stores interval function so it can be terminated
   var interval;
 
+  // Get preferences cookie
   var preferences = $cookies.getObject('UmassEMS_shift_preferences');
+
+  // If cookie is found update scope with preferences
   if(preferences) {
     $scope.one = preferences.one;
     $scope.two = preferences.two;
@@ -26,6 +32,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     $scope.fac = preferences.fac;
     $scope.other = preferences.other;
   } else {
+    // No cookie found so create one with default preferences
     $cookies.putObject('UmassEMS_shift_preferences', {
       one: false,
       two: true,
@@ -46,6 +53,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
       other: true
     });
 
+    // No cookie found so add default preferences to scope
     $scope.one = false;
     $scope.two = true;
     $scope.vol = true;
@@ -69,6 +77,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     $scope.other = true;
   }
 
+  // Updates the cookie with the current preferences
   function updateCookie() {
     $cookies.remove('UmassEMS_shift_preferences');
     $cookies.putObject('UmassEMS_shift_preferences', {
@@ -92,10 +101,15 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     });
   }
 
+  // Holds shifts that match preferences
   $scope.filteredShifts = [];
 
+  // Filters the shifts and adds the filtered shifts to filderedShifts
   $scope.filter = () => {
+    // Update the cookie
     updateCookie();
+
+    // Add shift to filteredShifts if it conforms to preferences
     $scope.filteredShifts = $scope.allShifts.filter((shift) => {
       return (($scope.one && shift.oneSlots > 0) ||
         ($scope.two && shift.twoSlots > 0) ||
@@ -119,6 +133,7 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     });
   };
 
+  // Processes and assigns new shift data to the scope, called when new data is recieved
   function onData(data) {
     let shifts = data.Shifts;
     shifts = shifts.filter((shift) => shift.Event !== 'DIRECTOR PICK');
@@ -145,13 +160,8 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
         else if(str === "V") shift.volSlots++;
       }
       function weekDay(n) {
-        if(n === 0) return "Su";
-        if(n === 1) return "M";
-        if(n === 2) return "Tu";
-        if(n === 3) return "W";
-        if(n === 4) return "Th";
-        if(n === 5) return "F";
-        if(n === 6) return "Sa";
+        var weekdays = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
+        return weekdays[n];
       }
       addSlot(obj['EMT_#1']);
       addSlot(obj['EMT_#2']);
@@ -189,20 +199,27 @@ app.controller('ShiftController', function($scope, $http, GoogleSheets, $cookies
     $scope.filter();
   }
 
+  // Get shifts from the google sheet and pass them to onData
   function getShifts() {
-      return GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
-      .then((data) => onData(data))
+      return $http.jsonp("https://dune-eagle.gomix.me/shifts", { params: { callback: "JSON_CALLBACK" } })
+      .then((data) => onData(data.data))
       .catch((error) => {
-        if(interval) clearInterval(interval);
-        $scope.shiftError = true;
-        return Promise.reject(error);
+        console.log(error);
+        GoogleSheets.getSheet('https://script.google.com/macros/s/AKfycbzYD_i_sRsJ47062S1KHT9lPpELKrL4pilZLMe4LLW5-F8InzOG/exec', '189rTX1Y5b_CAmvBcBXo2NZeNAxCil0vG5-nHHa69r0o')
+        .then((data) => onData(data))
+        .catch((error) => {
+          console.log(error);
+          if(interval) clearInterval(interval);
+          $scope.shiftError = true;
+          return Promise.reject(error);
+        });
       });
   }
 
-  getShifts()
+ // Get shifts initially then set interval to update
+ getShifts()
   .then(() => interval = setInterval(() => getShifts(), rate))
   .catch((error) => {
-    console.log('initial request')
     console.log(error);
   });
 });
