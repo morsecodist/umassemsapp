@@ -5,6 +5,7 @@
     "angular-cookies": "^1.6.1",
     "angular-marked": "^1.2.2",
     "angular-touch": "^1.6.1",
-    "pageslide": "*"
+    "pageslide": "*",
+    "angular-ui-router": "^0.3.2"
   }
 }
