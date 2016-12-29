@@ -38,7 +38,6 @@ app.controller('PanelController', function($scope, $http, $state, $rootScope, Go
       $scope.classMessage = $scope.classMessage = 'Registration for the ' + $scope.class.Term + ' ' + $scope.class.Year + ' class is now closed';
       $scope.classOpen = 'closed';
     }
-    $scope.content['Group Photo'] = 'https://lh3.googleusercontent.com/hvdCqVz7gyvfANz3bDsL2FYrsa8HQMMAgo4uLiMzHlAwzNiFy77yljrr-MA726FHRWzbVoIKcBW2RxLehpK3UORYzFIMon-jtvW7NOzdLjLnx9Y0YtJjOSoOZesJ52Y_OCM7FOMUy1t3ioetzASLKsKg0aTqHV1I4b-qI2Nerlz9VySF6Y46rXB74TsgSKvyQrGtdaPBbEtDcGwYyv-e2gx9yQnsorXs3NWoKYz-eZyGAHUyyk_PqcHaf52eGXaXAwSpELlpfDvaMKQrV_Ju2aAk3MkgcxXxBU3nqSkexFuxABhv4MVOQPh4ISedysOZfXXuoID2TfZGIf8Y94yBHkXNWdWSmR39UgaUyeSryZ51E5wOuCcUTbwGTLv7i4PRcO8t2mFysHjSfGXPTRpvKUZlOVYt7GsNI4PvTvzjH9PLYwwgX6RNhP07K9fOk-MvTby5VVBdobto9n3oIPSYrQ3-J_fq_mBzbpx4q-RL4HGCYTEEJ_ZtPJux1nTQcj5fpG2syLn01YE1mhNUxTU0K67azmA3zhQeRvLEcNoLodJXuKsbHTN-1IXmnroEUX5qtVx60Y_SrkZv_afyYk22BBxt2r_77A=w1909-h969-k';
   }
 
   // Get website content from the google sheet and pass to onData
