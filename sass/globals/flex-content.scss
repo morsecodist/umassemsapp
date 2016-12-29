@@ -23,17 +23,6 @@ div.flex > div:not(.line):not(.image-div) {
   flex-grow: 1;
 }
 
-@media screen and (max-width: 1452px) {
-  div.flex > .line {
-    visibility: hidden;
-  }
-  div.flex > div:not(.line):not(.image-div) {
-    width: 100%;
-    padding-bottom: 2vh;
-    flex-grow: 1;
-  }
-}
-
 div.image-div {
   padding: 2vw;
   text-align: center;
@@ -50,4 +39,17 @@ div.flex > .line {
   padding: 0px;
   min-width: 3px;
   background-color: $ems-navy;
+}
+
+@media screen and (max-width: 1452px) {
+  div.flex > .line {
+    visibility: hidden;
+    margin: 0;
+  }
+
+  div.flex > div:not(.line):not(.image-div) {
+    width: 100%;
+    padding-bottom: 2vh;
+    flex-grow: 1;
+  }
 }
