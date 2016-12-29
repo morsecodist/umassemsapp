@@ -20,8 +20,18 @@ div.flex.center > div > div {
 div.flex > div:not(.line):not(.image-div) {
   width: 40%;
   padding-bottom: 2vh;
-  min-width: 500px;
-  flex-grow: 5;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 1452px) {
+  div.flex > .line {
+    visibility: hidden;
+  }
+  div.flex > div:not(.line):not(.image-div) {
+    width: 100%;
+    padding-bottom: 2vh;
+    flex-grow: 1;
+  }
 }
 
 div.image-div {
