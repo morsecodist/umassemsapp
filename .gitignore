@@ -2,3 +2,4 @@
 /public/stylesheets/*
 /bower_components/**/*
 /public/assets/fallback.json
+/node_modules/

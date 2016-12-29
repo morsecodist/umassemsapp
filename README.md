@@ -16,10 +16,10 @@ To watch:
 
 ## Development Server
 
-To run development server:
+Build, run server, and watch:
+
+`npm start`
+
+To run just run development server:
 
 `node server`
-
-Build run server and watch:
-
-`./build-serve.sh`
