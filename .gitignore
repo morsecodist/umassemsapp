@@ -1,5 +1,5 @@
-/public/js/*
-/public/stylesheets/*
-/bower_components/**/*
+/public/js/
+/public/stylesheets/
+/public/bower_components/
 /public/assets/fallback.json
 /node_modules/
