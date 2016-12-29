@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# Run gulp and server in parallel, will watch for changes automatically
-gulp & node server
