@@ -1,18 +1,17 @@
 #mobile-menu {
-  background-color: lightgrey;
+  background-color: $mobile-menu-grey;
 }
 
 #mobile-menu > div > p {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  border-bottom: 5px solid black;
+  padding-top: 8%;
+  padding-bottom: 8%;
   padding-left: 10%;
-  color: black;
-  font-size: 5vh;
+  color: white;
+  font-size: 42pt;
   text-align: left;
 }
 
 #mobile-menu > div > p:hover {
-  background-color: darken(lightgrey, 5);
+  background-color: darken($mobile-menu-grey, 5);
 }
